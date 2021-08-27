@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Heart Disease Detection Website</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename = 'style.css')}}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Heart Disease Prediction</h1>
+      <div class="nav">
+        <ul>
+          <li><a href="http://127.0.0.1:5000/">Home</a></li>
+          <li>
+            <a href="http://127.0.0.1:5000/heart">Heart Disease Prediction</a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:5000/liver">Liver Disease Prediction</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <form
+      action="http://127.0.0.1:5000/heart"
+      method="POST"
+      enctype="multiport/form-data"
+    >
+      <div class="formclass">
+        <label>Age :</label>
+        <input type="text" name="age" /><br />
+        <label>Sex(1:Male,0:Female) :</label>
+        <input type="text" name="sex" /><br />
+        <label>Chest Pain Type :</label>
+        <input type="text" name="chest" /><br />
+        <label>Trestbps :</label>
+        <input type="text" name="trestbps" /><br />
+        <label>Serum cholestoral in mg/dl :</label>
+        <input type="text" name="chol" /><br />
+        <label>Fbs :</label>
+        <input type="text" name="fbs" /><br />
+
+        <label>Restecg :</label>
+        <input type="text" name="restecg" /><br />
+        <label>Thalach :</label>
+        <input type="text" name="thalach" /><br />
+        <label>Exang :</label>
+        <input type="text" name="exang" /><br />
+        <label>Oldpeak :</label>
+        <input type="text" name="oldpeak" /><br />
+        <label>Slope :</label>
+        <input type="text" name="slope" /><br />
+        <label>ca :</label>
+        <input type="text" name="ca" /><br />
+        <label>Thal :</label>
+        <input type="text" name="thal" /><br />
+
+        <input type="submit" />
+      </div>
+    </form>
+    <section class="footer">
+      <p>Copy right @ Divvela Vishnu Sai Kumar, Ritik Chaurasia</p>
+      <div class="icons">
+        <a href="https://facebook.com/">Facebook</a>
+        <a href="https://twitter.com/">Twitter</a>
+        <a href="https://www.linkedin.com/">Linked In</a>
+      </div>
+    </section>
+  </body>
+</html>

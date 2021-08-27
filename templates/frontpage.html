@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Health Diagnosis ML</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename = 'style.css')}}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Health Diagnosis Website</h1>
+      <div class="nav">
+        <ul>
+          <li><a href="http://127.0.0.1:5000/">Home</a></li>
+          <li>
+            <a href="http://127.0.0.1:5000/heart">Heart Disease Prediction</a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:5000/liver">Liver Disease Prediction</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="frontpageclass">
+      <h2>Welcome to the home page of the app</h2>
+      <p>
+        This is mainly based on the application of the machine learning,meant to
+        be employed in the remote and the downtrodden area.
+      </p>
+      <h2>Overview:</h2>
+      <p>
+        In todays time we see a lot of the shortage of the doctors in the world
+        especially in India.A lot of people are suffering a lot without the help
+        of the proper medical checkup.Also most of the cases many cases arise
+        leading to dealth due to lack of timely medical checkup So to cope up
+        with all of those problems this app is designed which would prove its
+        benefits upto much extent.
+      </p>
+
+      <h2>Heart Disease</h2>
+      <image
+        class="heartimage"
+        src="{{url_for('static',filename='heartdisease.jpg')}}"
+        alt="Heart Disease
+      Picture"
+      />
+      <h3>Overview</h3>
+      <p>
+        Heart disease describes a range of conditions that affect your heart.
+        Diseases under the heart disease umbrella include blood vessel diseases,
+        such as coronary artery disease; heart rhythm problems (arrhythmias);
+        and heart defects you're born with (congenital heart defects), among
+        others. The term "heart disease" is often used interchangeably with the
+        term "cardiovascular disease." Cardiovascular disease generally refers
+        to conditions that involve narrowed or blocked blood vessels that can
+        lead to a heart attack, chest pain (angina) or stroke. Other heart
+        conditions, such as those that affect your heart's muscle, valves or
+        rhythm, also are considered forms of heart disease. Many forms of heart
+        disease can be prevented or treated with healthy lifestyle choices.
+      </p>
+      <h3>Symptoms</h3>
+      <ul>
+        <li>
+          Chest pain, chest tightness, chest pressure and chest discomfort
+          (angina)
+        </li>
+        <li>Shortness of breath</li>
+        <li>
+          Pain, numbness, weakness or coldness in your legs or arms if the blood
+          vessels in those parts of your body are narrowed
+        </li>
+        <li>Pain in the neck, jaw, throat, upper abdomen or back</li>
+      </ul>
+      <h2>Liver Disease</h2>
+      <image
+        class="heartimage"
+        src="{{url_for('static',filename='liverdisease.jpg')}}"
+        alt="Liver Disease
+      Picture"
+      />
+      <h3>Overview</h3>
+      <p>
+        Liver disease is any disturbance of liver function that causes illness.
+        The liver is responsible for many critical functions within the body and
+        should it become diseased or injured, the loss of those functions can
+        cause significant damage to the body. Liver disease is also referred to
+        as hepatic disease. Liver disease is a broad term that covers all the
+        potential problems that cause the liver to fail to perform its
+        designated functions. Usually, more than 75% or three quarters of liver
+        tissue needs to be affected before a decrease in function occurs.
+      </p>
+      <h2>Symptoms</h2>
+      <p>Classic symptoms of liver disease include:</p>
+      <ul>
+        <li>Nausea</li>
+        <li>Vomiting</li>
+        <li>Right upper quadrant abdominal pain, and</li>
+        <li>
+          Jaundice (a yellow discoloration of the skin due to elevated bilirubin
+          concentrations in the bloodstream).
+        </li>
+      </ul>
+      <h2>Project Created by:</h2>
+      <p>Divvela Vishnu Sai Kumar and Ritik Chaurasia.</p>
+    </div>
+    <section class="footer1">
+      <p>Copy right @ Divvela Vishnu Sai Kumar, Ritik Chaurasia</p>
+      <div class="icons">
+        <a href="https://github.com/vishnu305">Github</a>
+        <a
+          href="https://www.youtube.com/channel/UC8N_xtS5BFOfNWFZgcn-Jfg/videos"
+          >Youtube</a
+        >
+        <a href="https://www.linkedin.com/in/vishnu-divvela-868b871b9/"
+          >Linked In</a
+        >
+      </div>
+    </section>
+  </body>
+</html>
