@@ -1,10 +1,6 @@
 from flask import Flask,render_template,request
-
 import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
+import pickle
 
 app = Flask(__name__)
 @app.route('/')
@@ -26,15 +22,18 @@ def cancer_page():
         albumin = request.form['exang']
         albumin_and_globulin_ratio = request.form['oldpeak']
 
-        liver_dataset = pd.read_csv('C:/Users/DIVVELA VISHNU/Desktop/Disease Detection Project/Heart Problem Detection/Flask Development/venv/indian_liver_patient.csv')
-        liver_dataset['Gender'] = liver_dataset['Gender'].map({'Male': 1, 'Female': 2})
-        liver_dataset.dropna(inplace=True)
-        X = liver_dataset.drop(columns='Dataset', axis=1)
-        Y = liver_dataset['Dataset']
-        X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=101)
-        model1 = RandomForestClassifier(n_estimators = 100)
-        model1.fit(X_train, Y_train)
+        #liver_dataset = pd.read_csv('C:/Users/DIVVELA VISHNU/Desktop/Disease Detection Project/Heart Problem Detection/Flask Development/venv/indian_liver_patient.csv')
+        # liver_dataset = pd.read_csv('indian_liver_patient.csv')
+        # liver_dataset['Gender'] = liver_dataset['Gender'].map({'Male': 1, 'Female': 2})
+        # liver_dataset.dropna(inplace=True)
+        # X = liver_dataset.drop(columns='Dataset', axis=1)
+        # Y = liver_dataset['Dataset']
+        # X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=101)
+        # model1 = RandomForestClassifier(n_estimators = 100)
+        # model1.fit(X_train, Y_train)
+        model1 = pickle.load(open('./static/liver_model.pkl','rb'))
         input_data = (age,sex,total_bilirubin,direct_bilirubin,alkaline_phosphotase,alamine_aminotransferase,aspartate_aminotransferase,total_proteins,albumin,albumin_and_globulin_ratio)
+        print(input_data)
         input_data_as_numpy_array= np.asarray(input_data)
         input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
         prediction = model1.predict(input_data_reshaped)
@@ -63,16 +62,21 @@ def heart_page():
         slope = request.form['slope']
         ca = request.form['ca']
         thal = request.form['thal']
-        heart_dataset = pd.read_csv('C:/Users/DIVVELA VISHNU/Desktop/Disease Detection Project/Heart Problem Detection/Flask Development/venv/heart.csv')
-        X = heart_dataset.drop(columns='target', axis=1)
-        Y = heart_dataset['target']
-        X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=101)
-        model1 = LogisticRegression()
-        model1.fit(X_train, Y_train)
-        input_data = (age,sex,chest,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal)
+        #heart_dataset = pd.read_csv('C:/Users/DIVVELA VISHNU/Desktop/Disease Detection Project/Heart Problem Detection/Flask Development/venv/heart.csv')
+        # heart_dataset = pd.read_csv('heart.csv')
+        # X = heart_dataset.drop(columns='target', axis=1)
+        # Y = heart_dataset['target']
+        # X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=101)
+        # model1 = LogisticRegression(solver='lbfgs', max_iter=1000)
+        # model1.fit(X_train.values, Y_train.values)
+        model2 = pickle.load(open('./static/heart_model.pkl','rb'))
+        input_data = [age,sex,chest,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]
+        for i in range(len(input_data)):
+            input_data[i]=float(input_data[i])
+        print(input_data)
         input_data_as_numpy_array= np.asarray(input_data)
         input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-        prediction = model1.predict(input_data_reshaped)
+        prediction = model2.predict(input_data_reshaped)
         senddata=""
         if (prediction[0]== 0):
             senddata='According to the given details person does not have Heart Disease'
